@@ -21,7 +21,7 @@ repository               : "BaoHong-Paul/BaoHong-Paul.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"
+  avatar           : "profile.png"
   name             : "Bao Hong/洪宝"
   pronouns         : # example: "she/her"  
   bio              : "Cognitive neuroscience"
