@@ -23,8 +23,8 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Bao Hong/洪宝"
-  pronouns         : # example: "she/her"  
-  bio              : "PHD student in Cognitive neuroscience"
+  pronouns         : "he/him"  
+  bio              : "PHD student in CogNeuro"
   location         : "Shanghai"
   employer         : "ECNU and NYU Shanghai"
   uri              : # URL
@@ -234,7 +234,7 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
-      share: true
+      share: false
       related: true
   # _pages
   - scope:
@@ -243,15 +243,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _teaching
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
   # _publications
   - scope:
       path: ""
@@ -261,23 +252,8 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _portfolio
-  - scope:
-      path: ""
-      type: portfolio
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: true
-      share: true
+ 
+
 
 
 # Sass/SCSS
