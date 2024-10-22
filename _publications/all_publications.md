@@ -1,3 +1,8 @@
+---
+title: "All Publications"
+layout: null
+---
+
 - **Hong, B.+, Chen J.+, Huang, W.J., & Li L.* (In review).**  
   Serial dependence in smooth pursuit eye movements of preadolescent children and adults.
 
