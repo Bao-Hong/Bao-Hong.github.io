@@ -12,7 +12,7 @@ main:
     url: /Presentations/   
   
   - title: "CV"
-    url: /cv/
-    
+    url: 'http://baohong-paul.github.io/files/HongBao-CV-202406.pdf'
+ 
   - title: "Guide"
     url: /markdown/
