@@ -13,4 +13,4 @@ I am currently interested in visual motion perception, investigating perceptual 
 
 For more info
 ------
-More info about me can be found in [CV](http://baohong-paul.github.io/files/HongBao-CV-202406.pdf).
+More information about me is available in my [CV](http://baohong-paul.github.io/files/HongBao-CV-202406.pdf).
