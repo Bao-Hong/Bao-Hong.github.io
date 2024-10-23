@@ -2,7 +2,7 @@
 title: "Temporal Dynamics of Serial Dependence in Ocular Tracking"
 collection: talks
 type: "Talk"
-permalink: /talks/2024-05-01-temporal-dynamics
+permalink: /talks/2024-05-temporal-dynamics
 venue: "2024 Annual Meeting of the Vision Sciences Society"
 date: 2024-05-01
 location: "St. Petersburg, Florida, USA"
