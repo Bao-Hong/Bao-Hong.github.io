@@ -17,8 +17,8 @@ author_profile: true
   {% for talk in site.talks reversed %}
     {% if talk.type == "Talk" %}
       <li>
-        <strong>{{ talk.date | date: "%B %Y" }}:</strong> {{ talk.title }}<br>
-        - {{ talk.venue }}, {{ talk.location }}<br>
+        <strong>{{ talk.date | date: "%B %Y" }}:</strong>
+        <a href="{{ talk.permalink }}">{{ talk.title }}<br>- {{ talk.venue }}, {{ talk.location }}<br>
 
         {% if talk.video_url %}
           🎥 <a href="{{ talk.video_url }}" target="_blank">Watch Video</a><br>
@@ -38,8 +38,8 @@ author_profile: true
   {% for talk in site.talks reversed %}
     {% if talk.type == "Poster" %}
       <li>
-        <strong>{{ talk.date | date: "%B %Y" }}:</strong> {{ talk.title }}<br>
-        - {{ talk.venue }}, {{ talk.location }}<br>
+        <strong>{{ talk.date | date: "%B %Y" }}:</strong>
+        <a href="{{ talk.permalink }}">{{ talk.title }}<br> - {{ talk.venue }}, {{ talk.location }}<br>
 
         {% if talk.file_url %}
           🖼️ <a href="{{ talk.file_url }}" target="_blank">View Poster</a><br>
