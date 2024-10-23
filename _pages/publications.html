@@ -6,36 +6,31 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">
-    Google Scholar: <a href="{{ site.author.googlescholar }}">{{ site.author.googlescholar }}</a>
-  </div>
+  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
-<div class="publications-section">
-  <p><strong>+</strong>: (co-)first author; <strong>*</strong>: corresponding author</p>
+{% include base_path %}
 
-  <h3><em>Preprints & Manuscripts submitted or in preparation:</em></h3>
+<!-- New style rendering if publication categories are defined -->
+{% if site.publication_category %}
+  {% for category in site.publication_category  %}
+    {% assign title_shown = false %}
+    {% for post in site.publications reversed %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.publications reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
 
-  <div class="publication-list" style="background-color: #f8f8f8; padding: 15px; border-radius: 8px;">
-    <ul style="list-style-type: none; padding: 0;">
-      <li>
-        <strong>Hong, B.+, Chen J.+, Huang, W.J., & Li L.* (In review).</strong>  
-        Serial dependence in smooth pursuit eye movements of preadolescent children and adults.
-      </li>
-      <li>
-        <strong>Hong, B., Chen J., & Li L.* (To be submitted).</strong>  
-        Temporal dynamics of serial dependence in ocular tracking.
-      </li>
-      <li>
-        <strong>Huang, W.J.+, Chen J.+, Hong, B., Wang, Y.S., Zuo, X.N.*, & Li L.* (To be submitted).</strong>  
-        Investigating Brain Structural Correlates of Ocular Tracking in Preadolescent Children and Young Adults.
-      </li>
-      <li>
-        <strong>Hong, B., Zhang, L., & Sun, H. (2019).</strong>  
-        Measurement of the Vertical Spatial Metaphor of Power Concepts Using the Implicit Relational Assessment Procedure.  
-        <em>Frontiers in Psychology, 10</em>, 1422.  
-        <a href="https://doi.org/10.3389/fpsyg.2019.01422" target="_blank">https://doi.org/10.3389/fpsyg.2019.01422</a>
-      </li>
-    </ul>
-  </div>
-</div>
+
+
