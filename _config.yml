@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Bao Hong"
+title                    : "Bao Hong/Home"
 title_separator          : "-"
 name                     : &name "Bao Hong/Home"
 description              : &description "Cognitive neuroscience"
