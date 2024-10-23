@@ -11,23 +11,40 @@ author_profile: true
 </p>
 {% endif %}
 
+<h2>Talks</h2>
+<hr />
 <ul>
   {% for talk in site.talks reversed %}
-    <li>
-      <strong>{{ talk.date | date: "%B %Y" }}:</strong>
-      <a href="{{ talk.permalink }}">{{ talk.title }}</a> - {{ talk.venue }}, {{ talk.location }}<br>
-      
-      {% if talk.video_url %}
-        🎥 <a href="{{ talk.video_url }}" target="_blank">Watch Video</a><br>
-      {% endif %}
-      
-      {% if talk.file_url %}
-        {% if talk.type == "Talk" %}
+    {% if talk.type == "Talk" %}
+      <li>
+        <strong>{{ talk.date | date: "%B %Y" }}:</strong>
+        <a href="{{ talk.permalink }}">{{ talk.title }}</a> - {{ talk.venue }}, {{ talk.location }}<br>
+
+        {% if talk.video_url %}
+          🎥 <a href="{{ talk.video_url }}" target="_blank">Watch Video</a><br>
+        {% endif %}
+
+        {% if talk.file_url %}
           📑 <a href="{{ talk.file_url }}" target="_blank">View Slides</a><br>
-        {% elsif talk.type == "Poster" %}
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<h2>Posters</h2>
+<hr />
+<ul>
+  {% for talk in site.talks reversed %}
+    {% if talk.type == "Poster" %}
+      <li>
+        <strong>{{ talk.date | date: "%B %Y" }}:</strong>
+        <a href="{{ talk.permalink }}">{{ talk.title }}</a> - {{ talk.venue }}, {{ talk.location }}<br>
+
+        {% if talk.file_url %}
           🖼️ <a href="{{ talk.file_url }}" target="_blank">View Poster</a><br>
         {% endif %}
-      {% endif %}
-    </li>
+      </li>
+    {% endif %}
   {% endfor %}
 </ul>
