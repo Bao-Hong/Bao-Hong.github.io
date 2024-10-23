@@ -1,24 +1,18 @@
 import os
 import re
 
-# Input string with multiple entries
-input_text = """
-Hong, B., Chen, J., & Li, L. (2024, May). Temporal dynamics of serial dependence in ocular tracking. Talk presented at the 2024 Annual Meeting of the Vision Sciences Society, Florida, USA.
-Hong, B., Huang, W.J., Li, E., Chen, J., & Li, L. (2023, August). Ocular tracking abilities in preadolescent children. Talk presented at the 5th China Vision Science Conference (CVSC2023), Wenzhou, Zhejiang, China
-Hong, B., Huang, W. J., Li, E., Chen, J., & Li, L. (2023, April). Ocular tracking abilities in preadolescent children. Poster presented the 2023 Annual Meeting of the General Psychology and Experimental Psychology of the Chinese Psychological Association, Jinhua, Zhejiang, China
-Huang, W. J., Hong, B., Chen, J., & Li, L. (2024, October). Brain Structural Correlates of Ocular Tracking in Preadolescent Children and Young Adults. Poster presented at the 2024 Annual Meeting of Society for Neuroscience, Chicago, USA.
-Huang, W. J., Hong, B., Wu, J. H., Chen, J., & Li, L. (2023, August). Investigating brain structural correlates of ocular tracking in preadolescent children and young adults. Poster presented at the 5th China Vision Science Conference (CVSC2023), Wenzhou, Zhejiang, China
-"""
-
 # Output directory
 output_dir = "talks"
 os.makedirs(output_dir, exist_ok=True)
 
-# Regular expression to extract details from each entry
+# Adjusted regular expression
 pattern = re.compile(
-    r"(?P<authors>(\w+),\s.+?)\s\((?P<year>\d{4}),\s(?P<month>\w+)\)\.\s"
-    r"(?P<title>.+?)\.\s(?P<type>(Talk|Poster))\s"
-    r"presented at the\s(?P<venue>.+?),\s(?P<location>.+?)\."
+    r"(?P<authors>[\w\s\.,&-]+?)\s"
+    r"\((?P<year>\d{4}),\s(?P<month>\w+)\)\.\s"
+    r"(?P<title>.+?)\.\s"
+    r"(?P<type>Talk|Poster)\s"
+    r"presented at the\s(?P<venue>.+?),\s"
+    r"(?P<location>.+?)(?:\.|$)"
 )
 
 # Function to convert month names to numeric format
@@ -30,34 +24,53 @@ def convert_month(month_name):
     }
     return months.get(month_name, "01")
 
-# Generate markdown content and save to individual .md files
-for match in pattern.finditer(input_text):
-    data = match.groupdict()
-
-    # Extract the first author's last name
-    first_author_last_name = data['authors'].split(",")[0]
-
-    # Prepare date in YYYY-MM-DD format
-    date = f"{data['year']}-{convert_month(data['month'])}-01"
-
-    # Generate markdown content
+# Function to generate markdown content and save it
+def save_to_markdown(data, filename):
     content = f"""---
 title: "{data['title']}"
 collection: talks
 type: "{data['type']}"
 venue: "{data['venue']}"
-date: {date}
+date: {data['year']}-{convert_month(data['month'])}-01
 location: "{data['location']}"
-file_url: "/files/{data['title'].replace(' ', '_')}.pdf"
+authors: "{data['authors']}"
+file_url: "/files/{data['year']}-{convert_month(data['month'])}-{data['authors'].split(",")[0].strip()}.pdf"
+#permalink: "https://jov.arvojournals.org/article.aspx?articleid=2801336"
+#video_url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ---
 """
-
-    # Create filename in the format YYYY-MM-DD-LastName.md
-    filename = f"{date}-{first_author_last_name}.md"
     filepath = os.path.join(output_dir, filename)
-
-    # Write the content to a markdown file
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
+    print(f"File created: {filepath}")
 
-print("Markdown files generated successfully!")
+# Collect user input
+print("Enter your entries (press Enter twice to finish):")
+user_input = ""
+while True:
+    line = input()
+    if not line.strip():
+        break
+    user_input += line + "\n"
+
+# Check each line with the regex pattern
+print("\nChecking input for matches...\n")
+for i, line in enumerate(user_input.strip().splitlines(), 1):
+    match = pattern.match(line.strip())
+    if match:
+        print(f"Line {i}: Match found!")
+        data = match.groupdict()
+        for key, value in data.items():
+            print(f"  {key}: {value}")
+
+        # Prepare filename
+        first_author_last_name = data['authors'].split(",")[0].strip()
+        date = f"{data['year']}-{convert_month(data['month'])}-01"
+        filename = f"{date}-{first_author_last_name}.md".replace(" ", "_").strip()
+
+        # Save to markdown
+        save_to_markdown(data, filename)
+    else:
+        print(f"Line {i}: No match found. Please check the format.")
+
+print("\nMarkdown files generation complete!")

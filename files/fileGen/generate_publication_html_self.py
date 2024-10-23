@@ -64,10 +64,10 @@ html_content = (
     "  </div>\n"
     "{% endif %}\n\n"
     "{% include base_path %}\n\n"
-    "<h2>Preprints & Manuscripts Submitted or in Preparation:</h2>\n"
-    f"{generate_html_list(preprints)}\n"
     "<h2>Published Works:</h2>\n"
     f"{generate_html_list(published)}"
+    "<h2>Manuscripts Submitted or in Preparation:</h2>\n"
+    f"{generate_html_list(preprints)}\n"
 )
 
 # Save the generated HTML to publications.html
