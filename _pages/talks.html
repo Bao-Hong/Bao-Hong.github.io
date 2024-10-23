@@ -39,7 +39,7 @@ author_profile: true
     {% if talk.type == "Poster" %}
       <li>
         <strong>{{ talk.date | date: "%B %Y" }}:</strong>
-        <a href="{{ talk.permalink }}">{{ talk.title }}</a>s<br> - {{ talk.venue }}, {{ talk.location }}<br>
+        <a href="{{ talk.permalink }}">{{ talk.title }}</a><br> - {{ talk.venue }}, {{ talk.location }}<br>
 
         {% if talk.file_url %}
           🖼️ <a href="{{ talk.file_url }}" target="_blank">View Poster</a><br>
