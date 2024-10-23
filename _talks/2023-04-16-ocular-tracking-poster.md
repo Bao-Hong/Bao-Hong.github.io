@@ -2,7 +2,7 @@
 title: "Ocular Tracking Abilities in Preadolescent Children"
 collection: talks
 type: "Poster"
-permalink: /talks/2023-04-16-ocular-tracking-poster
+#permalink: /talks/2023-04-16-ocular-tracking-poster
 venue: "2023 Annual Meeting of the General Psychology and Experimental Psychology of the Chinese Psychological Association"
 date: 2023-04-16
 location: "Jinhua, Zhejiang, China"
