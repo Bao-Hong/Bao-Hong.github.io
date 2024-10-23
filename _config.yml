@@ -8,9 +8,9 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Bao Hong/Home"
+title                    : "Bao Hong"
 title_separator          : "-"
-name                     : &name "Bao Hong/Home"
+name                     : &name "Bao Hong"
 description              : &description "Cognitive neuroscience"
 url                      : https://BaoHong-Paul.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -24,7 +24,7 @@ author:
   avatar           : "profile.png"
   name             : "Bao Hong/洪宝"
   pronouns         : "he/him"  
-  bio              : "PHD student in CogNeuro"
+  bio              : "PhD student in Cognitive Neuroscience"
   location         : "Shanghai"
   employer         : "ECNU and NYU Shanghai"
   uri              : # URL
@@ -252,7 +252,14 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _publications
+   - scope:
+      path: ""
+      type: teaching
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
   - scope:
       path: ""
       type: presentations 
