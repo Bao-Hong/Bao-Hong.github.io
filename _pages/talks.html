@@ -21,10 +21,13 @@ author_profile: true
         🎥 <a href="{{ talk.video_url }}" target="_blank">Watch Video</a><br>
       {% endif %}
       
-      {% if talk.slides_url %}
-        📑 <a href="{{ talk.slides_url }}" target="_blank">View Slides</a><br>
+      {% if talk.file_url %}
+        {% if talk.type == "Talk" %}
+          📑 <a href="{{ talk.file_url }}" target="_blank">View Slides</a><br>
+        {% elsif talk.type == "Poster" %}
+          🖼️ <a href="{{ talk.file_url }}" target="_blank">View Poster</a><br>
+        {% endif %}
       {% endif %}
     </li>
   {% endfor %}
 </ul>
-
