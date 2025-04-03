@@ -10,4 +10,4 @@ I am Bao Hong (洪宝), a second-year PhD candidate in cognitive neuroscience at
 
 I am currently interested in visual motion perception, investigating perceptual biases in continuous responses, such as serial dependence, using behavioral approaches (psychophysics, eye-tracking, and VR), EEG, and computational modeling. Additionally, I am engaged in research on the developmental aspects of visual motion perception in children.
 
-You can download my CV [here](http://baohong-paul.github.io/files/HongBao-CV.pdf).
+You can download my CV [here](http://bao-hong.github.io/files/HongBao-CV.pdf).
